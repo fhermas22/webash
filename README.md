@@ -11,6 +11,7 @@ Given a project name (prompted at runtime), Webash creates a folder like:
 ```
 <project_name>/
 ├─ index.html
+├─ assets/
 ├─ src/
 │  └─ main.js
 └─ styles/
