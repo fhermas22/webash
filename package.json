@@ -1,10 +1,10 @@
 {
-  "name": "webash",
+  "name": "webash-cli",
   "version": "2.2.0",
   "description": "A modern web architecture scaffolding CLI tool",
   "main": "webash.sh",
   "bin": {
-    "webash": "./webash.sh"
+    "webash": "webash.sh"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
