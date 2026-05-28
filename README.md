@@ -1,17 +1,28 @@
-# Webash v2.2.2
+# Webash v2.2.3
 
-A simple Bash “project generator” that scaffolds a small, modern **static web** structure for you: a `index.html`, a dark-themed `styles/style.css`, and a `src/main.js`.
+A simple, interactive Bash project generator that scaffolds a modern **static web** structure for you in seconds. It generates a semantic `index.html`, a modern dark-themed `styles/style.css`, and a production-ready `src/main.js`.
 
 ---
 
 [![Language](https://img.shields.io/badge/Language-Bash-black?style=for-the-badge&logo=bash)](https://www.gnu.org/software/bash)
-[![Version](https://img.shields.io/badge/Version-2.2.2-green?style=flat-square)](https://github.com/fhermas22/webash)
+[![NPM Version](https://img.shields.io/badge/npm-v2.2.3-blue?style=flat-square&logo=npm)](https://www.npmjs.com/package/webash-cli)
+[![Version](https://img.shields.io/badge/Version-2.2.3-green?style=flat-square)](https://github.com/fhermas22/webash)
 
 ---
 
-## What it generates
+## 🚀 Quick Start (No Installation Required)
 
-Given a project name (prompted at runtime), Webash creates a folder like:
+Thanks to **npm**, you don't even need to clone this repository or download any files. You can execute Webash instantly from anywhere using **`npx`**:
+
+```bash
+npx webash-cli
+```
+
+---
+
+## 🛠️ What it Generates
+
+Depending on your preference, Webash will scaffold the following modern structure either directly in your current directory or inside a new dedicated folder:
 
 ```
 <project_name>/
@@ -23,109 +34,91 @@ Given a project name (prompted at runtime), Webash creates a folder like:
    └─ style.css
 ```
 
-### `index.html`
-- Semantic, structured layout
-- Links `styles/style.css`
-- Loads `src/main.js`
+### 📄 `index.html`
 
-### `styles/style.css`
-- Dark theme using CSS variables
-- Global reset (`* { margin: 0; padding: 0; box-sizing: border-box; }`)
-- Centered “card” UI container
-- Typography + badge styling
+* Clean HTML5 semantic layout.
+* Pre-linked to `styles/style.css` and `src/main.js`.
+* Responsive viewport configuration.
 
-### `src/main.js`
-- Includes a `DOMContentLoaded` listener
-- Logs a success message in the browser console
+### 🎨 `styles/style.css`
 
----
+* Modern Dark Mode theme out-of-the-box using CSS custom properties (variables).
+* Clean global layout reset (`* { margin: 0; padding: 0; box-sizing: border-box; }`).
+* Fully centered Glassmorphism/Dark UI container box using Flexbox.
+* Built-in badge and modern typography styles.
 
-## How it works (high level)
+### ⚡ `src/main.js`
 
-When you run the script:
-1. Displays a stylized CLI logo (shows the generator version).
-2. Prints the current working directory.
-3. Prompts whether to create a dedicated subfolder.
-4. If you choose a subfolder, prompts: **Enter your web project name** (defaults to `web_project` if empty).
-5. If the target folder already exists, Webash asks before overwriting; when confirmed, it deletes it using `rm -rf` and recreates it.
-6. Creates directories and writes the HTML/CSS/JS boilerplate.
-7. Prints the resulting directory tree (`tree` if available, otherwise `ls -R`).
+* Safe initialization enclosed inside a `DOMContentLoaded` event listener.
+* Dynamic console greeting mapping your exact project name.
 
 ---
 
-## Requirements
+## ⚙️ How it Works (Interactive Flow)
 
-- Linux/macOS shell with **bash**
-- Common utilities: `mkdir`, `cat`
-- Optional: `tree` (used for the final output). If not installed, it falls back to `ls -R`.
+When executed, Webash guides you through a streamlined CLI setup:
+
+1. **Branding:** Displays a stylized ASCII Art logo bound to the current framework global version.
+2. **Environment Scan:** Prints your exact current working directory path.
+3. **Deployment Mode Choice:** Prompts you whether to create a new subfolder `(y/N)`.
+* **If No (Default):** Deploys files directly in your current workspace, dynamically adapting the project metadata to your current folder name.
+* **If Yes:** Prompts for a project name (falls back to `web_project` if left blank).
+4. **Smart Conflict Resolution:** If the requested folder already exists, Webash triggers an interactive loop asking whether you want to **Overwrite it** `[y/N]` or **Pick another name** safely without losing data.
+5. **Boilerplate Injection:** Creates all folders and injects the semantic premium web template.
+6. **Architecture Tree:** Outputs a visual breakdown of your new project (`tree` binary if available, otherwise falls back to a recursive `ls -R`).
 
 ---
 
-## Usage
+## 📋 Requirements
 
-1. Make sure the script is executable:
+* Linux / macOS / WSL shell environment running **Bash**.
+* Standard system binaries: `mkdir`, `cat`, `tr`, `basename`.
+* **Node.js & npm** (Only if you wish to run it globally via `npx`).
+* *Optional:* `tree` command for advanced post-generation structural logging.
 
+---
+
+## 💻 Manual Local Usage
+
+If you prefer to download and run the script locally instead of using `npx`:
+
+1. Make sure the script is granted execution permissions:
 ```bash
 chmod +x webash.sh
 ```
 
-2. Run it:
-
+2. Fire it up:
 ```bash
 ./webash.sh
 ```
 
-3. Enter a name when prompted, for example:
+---
 
-- `my-landing-page`
+## ⚠️ Safety & Overwrite Policy
+
+Webash prioritizes your data safety. Unlike previous versions, **it will never delete data automatically**.
+
+* If a folder collision occurs, the script enters a protective state.
+* Existing files are wiped using `rm -rf` **only if** you explicitly type `y` or `yes` when prompted to overwrite.
 
 ---
 
-## Example
+## 💡 Customization Ideas
 
-```bash
-$ ./webash.sh
-Enter your web project name: awesome-site
+The script is modular by design. You can easily modify the script's `cat << EOF` sections to:
 
-Your project awesome-site has been created successfully!
-...
-```
-
-Then open:
-
-- `awesome-site/index.html`
+* Inject your favorite CSS frameworks (Tailwind CSS CDN, FontAwesome, etc.).
+* Add multi-page scaffolding templates (e.g., `about.html`, `contact.html`).
+* Preset specific JavaScript utilities or state management templates inside `src/main.js`.
 
 ---
 
-## Notes / Safety
+## 📄 License
 
-- **Destructive behavior:** If the target directory already exists, Webash deletes it using:
-  - `rm -rf "$project_name"`
-
-If you want to preserve existing projects, you should rename the project or modify the script to skip deletion.
+This project is open-source software licensed under the [MIT License](https://github.com/fhermas22/webash?tab=MIT-1-ov-file).
 
 ---
 
-## Customization ideas
+## 👨‍💻 Built By
 
-You can extend the generator by editing the script sections that write:
-- `styles/style.css`
-- `src/main.js`
-- `index.html`
-
-Suggested next steps:
-- Add a template section for additional pages (e.g. `about.html`)
-- Add assets scaffolding (images/fonts)
-- Add form handling / interactive UI starter in `main.js`
-
----
-
-## License
-
-MIT
-
----
-
-## Built by
-
-**[fhermas22](https://github.com/fhermas22)** — Webash index & generator for static web projects.
+**[Hermas Francisco (fhermas22)](https://github.com/fhermas22)** — Pragmatic software engineering and automated environments.
