@@ -4,8 +4,8 @@ A simple Bash “project generator” that scaffolds a small, modern **static we
 
 ---
 
-[![Language](https://img.shields.io/badge/Language-Bash-green?style=flat-square)](https://github.com/fhermas22/webash)
-[![Version](https://img.shields.io/badge/Version-2.2-green?style=flat-square)](https://github.com/fhermas22/weebash)
+[![Language](https://img.shields.io/badge/Language-Bash-black?style=for-the-badge&logo=bash)](https://www.gnu.org/software/bash)
+[![Version](https://img.shields.io/badge/Version-2.2-green?style=flat-square)](https://github.com/fhermas22/webash)
 
 ---
 
