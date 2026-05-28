@@ -4,7 +4,7 @@
 # GLOBAL CONFIGURATION
 # =================================================================
 # Define the central script version identifier
-VERSION="2.1"
+VERSION="2.2"
 
 # =================================================================
 # TEXT COLORS & STYLES
@@ -47,18 +47,39 @@ target_dir="."
 create_subfolder="n"
 
 read -r -p "Do you want to create a dedicated subfolder for this project? (y/N): " location_choice
-# Normalize user input to lowercase
 location_choice=$(echo "$location_choice" | tr '[:upper:]' '[:lower:]')
 
 if [[ "$location_choice" == "y" || "$location_choice" == "yes" ]]; then
     create_subfolder="y"
     echo ""
-    read -r -p "Enter your web project name: " project_name
-    # Fallback to default name if input is empty
-    if [ -z "$project_name" ]; then
-        project_name="web_project"
-    fi
-    target_dir="./$project_name"
+    
+    # Loop to handle project naming and potential directory conflicts interactively
+    while true; do
+        read -r -p "Enter your web project name: " project_name
+        if [ -z "$project_name" ]; then
+            project_name="web_project"
+        fi
+        target_dir="./$project_name"
+
+        # Check if the directory already exists
+        if [[ -e "$target_dir" ]]; then
+            echo -e "${YELLOW}Conflict detected: '${project_name}' already exists.${NEUTRAL}"
+            read -r -p "Do you want to overwrite it? [y/N]: " overwrite_choice
+            overwrite_choice=$(echo "$overwrite_choice" | tr '[:upper:]' '[:lower:]')
+            
+            if [[ "$overwrite_choice" == "y" || "$overwrite_choice" == "yes" ]]; then
+                echo -e "${RED}Removing existing directory...${NEUTRAL}"
+                rm -rf "$target_dir"
+                break # Conflict resolved by overwrite, exit the loop
+            else
+                echo -e "${CYAN}Let's pick another name.${NEUTRAL}"
+                echo ""
+                # Loop continues to ask for a new name
+            fi
+        else
+            break # No conflict, exit the loop
+        fi
+    done
 else
     # Dynamic detection: Use the name of the current folder as project name
     project_name=$(basename "$current_dir")
@@ -69,14 +90,8 @@ echo ""
 echo "Initializing web project generation..."
 echo ""
 
-# Step 4: Handle directory conflicts and initialization based on user choice
+# Step 4: Create the main project root directory if a subfolder is requested
 if [[ "$create_subfolder" == "y" ]]; then
-    if [[ -e "$target_dir" ]]; then
-        echo -e "${RED}Conflict detected: A directory with this name already exists. Cleaning up...${NEUTRAL}"
-        rm -rf "$target_dir"
-    fi
-
-    # Create the main project root directory
     echo -e "Creating project root directory: ${YELLOW}$target_dir${NEUTRAL}..."
     mkdir "$target_dir"
     echo -e "-> ${GREEN}DONE${NEUTRAL}"
