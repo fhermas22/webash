@@ -1,11 +1,11 @@
-# Webash v2.2.0
+# Webash v2.2.1
 
 A simple Bash “project generator” that scaffolds a small, modern **static web** structure for you: a `index.html`, a dark-themed `styles/style.css`, and a `src/main.js`.
 
 ---
 
 [![Language](https://img.shields.io/badge/Language-Bash-black?style=for-the-badge&logo=bash)](https://www.gnu.org/software/bash)
-[![Version](https://img.shields.io/badge/Version-2.2.0-green?style=flat-square)](https://github.com/fhermas22/webash)
+[![Version](https://img.shields.io/badge/Version-2.2.1-green?style=flat-square)](https://github.com/fhermas22/webash)
 
 ---
 
