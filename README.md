@@ -1,11 +1,11 @@
-# Webash v2.2
+# Webash v2.2.0
 
 A simple Bash “project generator” that scaffolds a small, modern **static web** structure for you: a `index.html`, a dark-themed `styles/style.css`, and a `src/main.js`.
 
 ---
 
 [![Language](https://img.shields.io/badge/Language-Bash-black?style=for-the-badge&logo=bash)](https://www.gnu.org/software/bash)
-[![Version](https://img.shields.io/badge/Version-2.2-green?style=flat-square)](https://github.com/fhermas22/webash)
+[![Version](https://img.shields.io/badge/Version-2.2.0-green?style=flat-square)](https://github.com/fhermas22/webash)
 
 ---
 
@@ -66,13 +66,13 @@ When you run the script:
 1. Make sure the script is executable:
 
 ```bash
-chmod +x webash_v2.sh
+chmod +x webash.sh
 ```
 
 2. Run it:
 
 ```bash
-./webash_v2.sh
+./webash.sh
 ```
 
 3. Enter a name when prompted, for example:
@@ -84,7 +84,7 @@ chmod +x webash_v2.sh
 ## Example
 
 ```bash
-$ ./webash_v2.sh
+$ ./webash.sh
 Enter your web project name: awesome-site
 
 Your project awesome-site has been created successfully!
