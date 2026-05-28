@@ -4,7 +4,7 @@
 # GLOBAL CONFIGURATION
 # =================================================================
 # Define the central script version identifier
-VERSION="2.2.1"
+VERSION="2.2.2"
 
 # =================================================================
 # TEXT COLORS & STYLES
