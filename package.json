@@ -1,0 +1,28 @@
+{
+  "name": "webash",
+  "version": "2.2.0",
+  "description": "A modern web architecture scaffolding CLI tool",
+  "main": "webash.sh",
+  "bin": {
+    "webash": "./webash.sh"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fhermas22/webash.git"
+  },
+  "keywords": [
+    "bash",
+    "cli",
+    "scaffolding",
+    "web"
+  ],
+  "author": "Hermas Francisco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fhermas22/webash/issues"
+  },
+  "homepage": "https://github.com/fhermas22/webash#readme"
+}
