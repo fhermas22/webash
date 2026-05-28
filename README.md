@@ -1,6 +1,11 @@
-# Webash v2.0
+# Webash v2.2
 
 A simple Bash “project generator” that scaffolds a small, modern **static web** structure for you: a `index.html`, a dark-themed `styles/style.css`, and a `src/main.js`.
+
+---
+
+[![Language](https://img.shields.io/badge/Language-Bash-green?style=flat-square)](https://github.com/fhermas22/webash)
+[![Version](https://img.shields.io/badge/Version-2.2-green?style=flat-square)](https://github.com/fhermas22/weebash)
 
 ---
 
@@ -38,12 +43,13 @@ Given a project name (prompted at runtime), Webash creates a folder like:
 ## How it works (high level)
 
 When you run the script:
-1. Displays a stylized CLI logo.
+1. Displays a stylized CLI logo (shows the generator version).
 2. Prints the current working directory.
-3. Prompts: **Enter your web project name** (defaults to `web_project` if empty).
-4. If a folder with that name already exists, it removes it (`rm -rf`) and recreates it.
-5. Creates directories and writes the HTML/CSS/JS boilerplate.
-6. Prints the resulting directory tree (`tree` if available, otherwise `ls -R`).
+3. Prompts whether to create a dedicated subfolder.
+4. If you choose a subfolder, prompts: **Enter your web project name** (defaults to `web_project` if empty).
+5. If the target folder already exists, Webash asks before overwriting; when confirmed, it deletes it using `rm -rf` and recreates it.
+6. Creates directories and writes the HTML/CSS/JS boilerplate.
+7. Prints the resulting directory tree (`tree` if available, otherwise `ls -R`).
 
 ---
 
@@ -122,4 +128,4 @@ MIT
 
 ## Built by
 
-**[fhermas](https://github.com/fhermas22)** — Webash index & generator for static web projects.
+**[fhermas22](https://github.com/fhermas22)** — Webash index & generator for static web projects.
