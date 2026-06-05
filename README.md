@@ -1,12 +1,11 @@
-# Webash v2.2.3
+# Webash
 
 A simple, interactive Bash project generator that scaffolds a modern **static web** structure for you in seconds. It generates a semantic `index.html`, a modern dark-themed `styles/style.css`, and a production-ready `src/main.js`.
 
 ---
 
 [![Language](https://img.shields.io/badge/Language-Bash-black?style=for-the-badge&logo=bash)](https://www.gnu.org/software/bash)
-[![NPM Version](https://img.shields.io/badge/npm-v2.2.3-blue?style=flat-square&logo=npm)](https://www.npmjs.com/package/webash-cli)
-[![Version](https://img.shields.io/badge/Version-2.2.3-green?style=flat-square)](https://github.com/fhermas22/webash)
+[![NPM Version](https://img.shields.io/npm/v/webash-cli?style=flat-square&logo=npm&color=blue)](https://www.npmjs.com/package/webash-cli)
 
 ---
 
@@ -58,11 +57,11 @@ Depending on your preference, Webash will scaffold the following modern structur
 
 When executed, Webash guides you through a streamlined CLI setup:
 
-1. **Branding:** Displays a stylized ASCII Art logo bound to the current framework global version.
+1. **Branding:** Displays a stylized ASCII Art logo bound to the current package version.
 2. **Environment Scan:** Prints your exact current working directory path.
 3. **Deployment Mode Choice:** Prompts you whether to create a new subfolder `(y/N)`.
-* **If No (Default):** Deploys files directly in your current workspace, dynamically adapting the project metadata to your current folder name.
-* **If Yes:** Prompts for a project name (falls back to `web_project` if left blank).
+   * **If No (Default):** Deploys files directly in your current workspace, dynamically adapting the project metadata to your current folder name.
+   * **If Yes:** Prompts for a project name (falls back to `web_project` if left blank). Dedicated folder names must use 1-64 characters: letters, numbers, hyphens, and underscores, starting with a letter or number.
 4. **Smart Conflict Resolution:** If the requested folder already exists, Webash triggers an interactive loop asking whether you want to **Overwrite it** `[y/N]` or **Pick another name** safely without losing data.
 5. **Boilerplate Injection:** Creates all folders and injects the semantic premium web template.
 6. **Architecture Tree:** Outputs a visual breakdown of your new project (`tree` binary if available, otherwise falls back to a recursive `ls -R`).
@@ -72,7 +71,7 @@ When executed, Webash guides you through a streamlined CLI setup:
 ## 📋 Requirements
 
 * Linux / macOS / WSL shell environment running **Bash**.
-* Standard system binaries: `mkdir`, `cat`, `tr`, `basename`.
+* Standard system binaries: `basename`, `cat`, `dirname`, `head`, `ls`, `mkdir`, `pwd`, `readlink`, `rm`, `sed`, `tr`.
 * **Node.js & npm** (Only if you wish to run it globally via `npx`).
 * *Optional:* `tree` command for advanced post-generation structural logging.
 
@@ -98,8 +97,23 @@ chmod +x webash.sh
 
 Webash prioritizes your data safety. Unlike previous versions, **it will never delete data automatically**.
 
+* Dedicated folder names are validated before any filesystem write.
+* Path traversal, absolute paths, dots, slashes, spaces, and shell-sensitive characters are rejected for new folder names.
 * If a folder collision occurs, the script enters a protective state.
 * Existing files are wiped using `rm -rf` **only if** you explicitly type `y` or `yes` when prompted to overwrite.
+* Project metadata injected into generated HTML and JavaScript is escaped before writing files.
+
+---
+
+## ✅ Development Checks
+
+Run the automated test suite locally with:
+
+```bash
+npm test
+```
+
+The tests verify Bash syntax, direct generation, subfolder generation, conflict handling, unsafe project-name rejection, and HTML/JavaScript escaping.
 
 ---
 
